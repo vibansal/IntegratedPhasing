@@ -15,10 +15,14 @@ Steps:
 2. Run SHAPEIT2 on the VCF file using the 1000 Genomes reference panel:
 
 ```
-shapeit --input-vcf VCFfile - genetic_map.txt --output-graph gwas.phased.graph
+shapeit --input-vcf VCFfile -M genetic_map.txt --output-graph VCFfile.graph
 ```
 
-3. use samplehaps.py to sample 'N' haplotype pairs for the individual 
+3. use samplehaps.py to sample 'N' haplotype pairs for the individual
+
+```
+python samplehaps.py VCFfile > VCFfile.haps
+```
 
 4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
 
