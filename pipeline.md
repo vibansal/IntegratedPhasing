@@ -3,15 +3,25 @@
 Requirements: 
 
 1. HapCUT2: https://github.com/vibansal/HapCUT2
-2. SHAPEIT2: https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/
+2. SHAPEIT2: https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html 
 3. 1000 Genomes reference panel haplotypes: https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html
 4. BAM file and VCF file for individual to be phased 
 
 
 Steps: 
 
-1. Run extractHAIRS on the BAM and VCF file (see HapCUT2 instructions) 
-2. Run SHAPEIT2 on the VCF file using the 1000 Genomes reference panel 
-3. use encode.py to generate pseudo-reads 
-4. combine the fragments from step (1) and (3) 
-5. run HapCUT2 
+1. Run extractHAIRS on the BAM and VCF file  to obtain Hi-C fragments (see HapCUT2 instructions for how to do this, use option --hic 1)
+
+2. Run SHAPEIT2 on the VCF file using the 1000 Genomes reference panel:
+
+```
+shapeit --input-vcf VCFfile - genetic_map.txt --output-graph gwas.phased.graph
+```
+
+3. use samplehaps.py to sample 'N' haplotype pairs for the individual 
+
+4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
+
+5. concatenate the "Hi-C fragments" and the "pseudo-reads" to obtain the new "fragment file"
+
+6. run HapCUT2 on the new "fragment file" to obtain phased haplotypes 
