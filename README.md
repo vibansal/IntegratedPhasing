@@ -3,5 +3,5 @@ This repository holds the source code and data files for the paper **[Integratin
 
 Slides from the ISMB talk are [available](https://github.com/vibansal/IntegratedPhasing/blob/master/Bansal-HitSeq2019.pdf)
 
-
+The integrated phasing method uses the HapCUT2 and SHAPEIT2 tools to phase individual genomes (diploid) using sequence reads and population data. Please see **pipeline.md** on instructions on how to use the tool. 
 
