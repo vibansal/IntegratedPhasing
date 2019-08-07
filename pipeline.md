@@ -7,7 +7,7 @@ Requirements:
 3. 1000 Genomes reference panel haplotypes: https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html
 4. BAM file and VCF file for individual to be phased 
 
-
+Note: The code was developed and tested using python2.7. 
 
 
 Steps: 
@@ -30,7 +30,7 @@ python samplehaps.py VCFfile 1000 > VCFfile.haps
 4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
 
 ```
-python encodereads.py VCFfile.haps VCFfile.haps > sample.pseudo_reads
+python encodereads.py VCFfile.haps > sample.pseudo_reads
 ```
 
 5. concatenate the "Hi-C fragments" file and the sample.pseudo_reads to obtain the new "fragment file"
