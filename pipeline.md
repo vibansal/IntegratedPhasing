@@ -8,6 +8,8 @@ Requirements:
 4. BAM file and VCF file for individual to be phased 
 
 
+
+
 Steps: 
 
 1. Run extractHAIRS on the BAM and VCF file  to obtain Hi-C fragments (see HapCUT2 instructions for how to do this, use option --hic 1)
@@ -19,14 +21,18 @@ shapeit --input-vcf VCFfile -R reference_panel.hap reference_panel.legend refere
 ```
 The files reference_panel.hap, reference_panel.legend and reference_panel.samples (for each chromosome) can be downloaded from the link above. 
 
-3. use samplehaps.py to sample 'N' haplotype pairs for the individual
+3. use samplehaps.py to sample 'N' haplotype pairs for the individual (we have used N=1000)
 
 ```
-python samplehaps.py VCFfile > VCFfile.haps
+python samplehaps.py VCFfile 1000 > VCFfile.haps 
 ```
 
 4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
 
-5. concatenate the "Hi-C fragments" and the "pseudo-reads" to obtain the new "fragment file"
+```
+python encodereads.py VCFfile.haps VCFfile.haps > sample.pseudo_reads
+```
+
+5. concatenate the "Hi-C fragments" file and the sample.pseudo_reads to obtain the new "fragment file"
 
 6. run HapCUT2 on the new "fragment file" to obtain phased haplotypes 
