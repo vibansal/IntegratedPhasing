@@ -15,8 +15,9 @@ Steps:
 2. Run SHAPEIT2 on the VCF file using the 1000 Genomes reference panel:
 
 ```
-shapeit --input-vcf VCFfile -M genetic_map.txt --output-graph VCFfile.graph
+shapeit --input-vcf VCFfile -R reference_panel.hap reference_panel.legend reference_panel.samples -M genetic_map.txt --output-graph VCFfile.graph
 ```
+The files reference_panel.hap, reference_panel.legend and reference_panel.samples (for each chromosome) can be downloaded from the link above. 
 
 3. use samplehaps.py to sample 'N' haplotype pairs for the individual
 
