@@ -1,18 +1,18 @@
 
 
-####Requirements: 
+#### Requirements: 
 
 1. HapCUT2: https://github.com/vibansal/HapCUT2
 2. SHAPEIT2: https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html 
 3. 1000 Genomes reference panel haplotypes: https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html
 4. BAM file and VCF file for individual to be phased 
 
-####Note: 
+#### Note: 
 
 The code was developed and tested using python2.7. 
 
 
-####Steps: 
+#### Steps: 
 
 1. Run extractHAIRS on the BAM and VCF file  to obtain Hi-C fragments (see HapCUT2 instructions for how to do this, use option --hic 1)
 
