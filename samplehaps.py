@@ -21,7 +21,7 @@ def sample_haplotypes(VCF,nsamples):
 
 	if nsamples > 1: F1 = open(HAPfile,'w'); # new output file
 
-	for r in xrange(nsamples):
+	for r in range(nsamples):
 		seed = random.randint(1,10000000);
 		outfile = VCF + '.phased'; logfile = VCF + '.shapeit.log';
 		samplehap = SHAPEIT + ' -convert' + ' --seed ' + `r` + ' --input-graph ' + VCF + '.graph' + ' --output-sample ' + outfile + ' -L ' + logfile;
