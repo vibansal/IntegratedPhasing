@@ -11,7 +11,6 @@
 
 The code was developed and tested using python2.7. 
 
-
 #### Steps: 
 
 1. Run extractHAIRS on the BAM and VCF file  to obtain Hi-C fragments (see HapCUT2 instructions for how to do this, use option --hic 1)
@@ -19,20 +18,21 @@ The code was developed and tested using python2.7.
 2. Run SHAPEIT2 on the VCF file using the 1000 Genomes reference panel:
 
 ```
-shapeit --input-vcf VCFfile -R reference_panel.hap reference_panel.legend reference_panel.samples -M genetic_map.txt --output-graph VCFfile.graph
+shapeit -check --input-vcf VCF -R reference_panel.hap.gz reference_panel.legend.gz reference_panel.samples --output-log VCF.log
+shapeit --input-vcf VCF -R reference_panel.hap.gz reference_panel.legend.gz reference_panel.samples -M genetic_map.txt --output-graph VCF.graph --exclude-snp VCF.check.snp.strand.exclude
 ```
-The files reference_panel.hap, reference_panel.legend and reference_panel.samples (for each chromosome) can be downloaded from the link above. 
+The files reference_panel.hap.gz, reference_panel.legend.gz and reference_panel.samples (for each chromosome) can be downloaded from the link above. 
 
 3. use samplehaps.py to sample 'N' haplotype pairs for the individual (we have used N=1000)
 
 ```
-python samplehaps.py VCFfile 1000 > VCFfile.haps.log
+python samplehaps.py VCF 1000 
 ```
 
 4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
 
 ```
-python encodereads.py VCFfile.hapsamples > sample.pseudo_reads
+python encodereads.py VCF.hapsamples > sample.pseudo_reads
 ```
 
 5. concatenate the "Hi-C fragments" file and the sample.pseudo_reads to obtain the new "fragment file"
