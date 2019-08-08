@@ -7,9 +7,9 @@
 3. 1000 Genomes reference panel haplotypes: https://mathgen.stats.ox.ac.uk/impute/1000GP_Phase3.html
 4. BAM file and VCF file for individual to be phased 
 
-#### Note: 
+#### Notes: 
 
-The code was developed and tested using python2.7. 
+The code was developed and tested using python2.7. It will be ported to python3 soon. 
 
 'VCF' refers to the path to the input VCF file
 
