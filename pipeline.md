@@ -11,6 +11,8 @@
 
 The code was developed and tested using python2.7. 
 
+'VCF' refers to the path to the input VCF file
+
 #### Steps: 
 
 1. Run extractHAIRS on the BAM and VCF file  to obtain Hi-C fragments (see HapCUT2 instructions for how to do this, use option --hic 1)
@@ -23,7 +25,7 @@ shapeit --input-vcf VCF -R reference_panel.hap.gz reference_panel.legend.gz refe
 ```
 The files reference_panel.hap.gz, reference_panel.legend.gz and reference_panel.samples (for each chromosome) can be downloaded from the link above. 
 
-3. use samplehaps.py to sample 'N' haplotype pairs for the individual (we have used N=1000)
+3. use samplehaps.py to sample 'N' haplotype pairs for the individual (we have used N=1000). The program will output the samples to the file VCF.hapsamples where VCF is the path to the input VCF file
 
 ```
 python samplehaps.py VCF 1000 
