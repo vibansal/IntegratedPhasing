@@ -3,7 +3,7 @@ from mstkruskal import Graph
 
 def pairwiseLD(haplist,nsamples,i,j):
 	counts = [0,0];
-	for r in xrange(nsamples): 
+	for r in range(nsamples): 
 		if haplist[r][i] == '0' and haplist[r][j] == '0': counts[0] +=1; 
 		elif haplist[r][i] == '1' and haplist[r][j] == '1': counts[0] +=1; 
 		elif haplist[r][i] == '0' and haplist[r][j] == '1': counts[1] +=1; 
@@ -19,8 +19,8 @@ def summarize_haps(haplist,varindexes,THRESH=0.9):
 	size = v;
 
 	discarded=0;
-	for i in xrange(size):
-		for j in xrange(i+1,min(v,i+W)):
+	for i in range(size):
+		for j in range(i+1,min(v,i+W)):
 			counts = pairwiseLD(haplist,nsamples,i,j);
 			f = float(counts[0]+0.5)/(counts[0]+counts[1]+1);
 			if f > THRESH: 
