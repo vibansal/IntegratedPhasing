@@ -26,13 +26,13 @@ The files reference_panel.hap, reference_panel.legend and reference_panel.sample
 3. use samplehaps.py to sample 'N' haplotype pairs for the individual (we have used N=1000)
 
 ```
-python samplehaps.py VCFfile 1000 > VCFfile.haps 
+python samplehaps.py VCFfile 1000 > VCFfile.haps.log
 ```
 
 4. use encodereads.py to represent the haplotype samples as "pseudo-reads" 
 
 ```
-python encodereads.py VCFfile.haps > sample.pseudo_reads
+python encodereads.py VCFfile.hapsamples > sample.pseudo_reads
 ```
 
 5. concatenate the "Hi-C fragments" file and the sample.pseudo_reads to obtain the new "fragment file"
