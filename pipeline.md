@@ -9,7 +9,7 @@
 
 #### Notes: 
 
-The code was developed and tested using python2.7. It will be ported to python3 soon. 
+The code was developed and tested using python2.7. Currently, it doesn't work for python versions 3 or more. 
 
 'VCF' refers to the path to the input VCF file
 
